@@ -1,35 +1,35 @@
-window.addEventListener('scroll', onScroll)
-onScroll()
+window.addEventListener('scroll', onScroll);
+onScroll();
 
 function onScroll() {
-  showNavOnScroll()
-  showBackToTopButtonOnScroll()
+  showNavOnScroll();
+  showBackToTopButtonOnScroll();
 }
 
 function showNavOnScroll() {
-  navigation = document.querySelector('#navigation')
+  navigation = document.querySelector('#navigation');
   if (scrollY > 0) {
-    navigation.classList.add('scroll')
+    navigation.classList.add('scroll');
   } else {
-    navigation.classList.remove('scroll')
+    navigation.classList.remove('scroll');
   }
 }
 
 function showBackToTopButtonOnScroll() {
-  backToTopButton = document.querySelector('#backToTopButton')
+  backToTopButton = document.querySelector('#backToTopButton');
   if (scrollY > 500) {
-    backToTopButton.classList.add('show')
+    backToTopButton.classList.add('show');
   } else {
-    backToTopButton.classList.remove('show')
+    backToTopButton.classList.remove('show');
   }
 }
 
 function openMenu() {
-  document.body.classList.add('menu-expanded')
+  document.body.classList.add('menu-expanded');
 }
 
 function closeMenu() {
-  document.body.classList.remove('menu-expanded')
+  document.body.classList.remove('menu-expanded');
 }
 
 ScrollReveal({
@@ -44,4 +44,4 @@ ScrollReveal({
   #services .card,
   #about,
   #about header,
-  #aout .content`)
+  #aout .content`);
