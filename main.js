@@ -4,6 +4,33 @@ onScroll();
 function onScroll() {
   showNavOnScroll();
   showBackToTopButtonOnScroll();
+  activateMenuAtCurrentSection(home);
+  activateMenuAtCurrentSection(services);
+  activateMenuAtCurrentSection(about);
+  activateMenuAtCurrentSection(contact);
+}
+
+function activateMenuAtCurrentSection(section) {
+  let targetLine = scrollY + innerHeight / 2;
+
+  // Verificar se a seção passou da linha.
+  const sectionTop = section.offsetTop;
+  const sectionHeight = section.offsetHeight;
+
+  const sectionTopReachOrPassedTargetLine = targetLine >= sectionTop;
+
+  const sectionEndsAt = sectionTop + sectionHeight;
+  const sectionEndPassedTargetLine = sectionEndsAt <= targetLine;
+
+  const sectionsBoundaries =
+    sectionTopReachOrPassedTargetLine && !sectionEndPassedTargetLine;
+
+  const sectionId = section.getAttribute('id');
+  const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`);
+
+  if (sectionsBoundaries) {
+    menuElement.classList.add('active');
+  }
 }
 
 function showNavOnScroll() {
